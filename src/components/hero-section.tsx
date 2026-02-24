@@ -16,24 +16,34 @@ export function HeroSection() {
       import("webgl-fluid").then(({ default: WebGLFluid }) => {
         if (!canvasRef.current) return;
 
-        WebGLFluid(canvasRef.current as HTMLCanvasElement, {
-          IMMEDIATE: true,
-          TRIGGER: "hover",
-          SIM_RESOLUTION: 128,
-          DYE_RESOLUTION: 1024,
-          DENSITY_DISSIPATION: 3,
-          VELOCITY_DISSIPATION: 1.2,
-          PRESSURE: 0.1,
-          SPLAT_RADIUS: 0.1,
-          SPLAT_FORCE: 4000,
-          SHADING: true,
-          COLORFUL: true,
-          COLOR_UPDATE_SPEED: 10,
-          PAUSED: false,
-          BACK_COLOR: { r: 247, g: 245, b: 255 },
-          TRANSPARENT: true,
-          BLOOM: false,
-        });
+        // Check WebGL support before initialising — some mobile browsers don't expose it
+        const testCtx =
+          canvasRef.current.getContext("webgl") ||
+          canvasRef.current.getContext("experimental-webgl");
+        if (!testCtx) return;
+
+        try {
+          WebGLFluid(canvasRef.current as HTMLCanvasElement, {
+            IMMEDIATE: true,
+            TRIGGER: "hover",
+            SIM_RESOLUTION: 128,
+            DYE_RESOLUTION: 1024,
+            DENSITY_DISSIPATION: 3,
+            VELOCITY_DISSIPATION: 1.2,
+            PRESSURE: 0.1,
+            SPLAT_RADIUS: 0.1,
+            SPLAT_FORCE: 4000,
+            SHADING: true,
+            COLORFUL: true,
+            COLOR_UPDATE_SPEED: 10,
+            PAUSED: false,
+            BACK_COLOR: { r: 247, g: 245, b: 255 },
+            TRANSPARENT: true,
+            BLOOM: false,
+          });
+        } catch {
+          // WebGL not available in this environment — silently skip the animation
+        }
       });
     }
   }, []);
@@ -47,7 +57,7 @@ export function HeroSection() {
       >
         <canvas
           ref={canvasRef}
-          className="h-full w-full opacity-30 pointer-events-auto"
+          className="h-full w-full opacity-20 pointer-events-none md:pointer-events-auto"
           style={{
             width: "100vw",
             height: "100vh",
@@ -104,14 +114,16 @@ export function HeroSection() {
 
       <div className="pointer-events-none relative z-10 mx-auto flex min-h-screen max-w-275 flex-col items-center justify-center px-6 pb-20 pt-28 text-center">
         <FadeUp delay={0}>
-          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/60 bg-white/30 px-5 py-2 shadow-[0_8px_32px_rgba(136,116,223,0.15),inset_0_1px_0_rgba(255,255,255,0.7),inset_0_0_20px_rgba(255,255,255,0.4)] backdrop-blur-2xl backdrop-saturate-[2]">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8874df] opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8874df] shadow-[0_0_8px_rgba(136,116,223,0.8)]" />
-            </span>
-            <span className="text-[13px] font-semibold tracking-wide text-[#8874df]">
-              {t.hero.badge}
-            </span>
+          <div className="mb-8 inline-flex flex-col items-center gap-1.5 rounded-3xl border border-white/60 bg-white/30 px-5 py-3 shadow-[0_8px_32px_rgba(136,116,223,0.15),inset_0_1px_0_rgba(255,255,255,0.7),inset_0_0_20px_rgba(255,255,255,0.4)] backdrop-blur-2xl backdrop-saturate-[2] sm:flex-row sm:gap-2.5 sm:rounded-full sm:py-2">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8874df] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8874df] shadow-[0_0_8px_rgba(136,116,223,0.8)]" />
+              </span>
+              <span className="text-[13px] font-semibold tracking-wide text-[#8874df]">
+                {t.hero.badge}
+              </span>
+            </div>
           </div>
         </FadeUp>
 
