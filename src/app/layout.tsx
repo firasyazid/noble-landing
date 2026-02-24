@@ -21,15 +21,15 @@ const siteUrl = "https://noblemind.sa/";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Novera – AI-Powered Healthcare Platform for Saudi Arabia",
-    template: "%s | Novera",
+    default: "NobleMind – AI-Powered Healthcare Platform made in Saudi Arabia",
+    template: "%s | NobleMind",
   },
   description:
-    "Novera empowers Saudi healthcare providers with generative AI — from clinical intelligence (Novera.MD) to secure workspaces and deep document retrieval. Built in the Kingdom for Vision 2030.",
+    "NobleMind empowers Saudi healthcare providers with generative AI — from clinical intelligence (NobleMind.MD) to secure workspaces and deep document retrieval. Built in the Kingdom for Vision 2030.",
   keywords: [
     "AI healthcare Saudi Arabia",
     "generative AI healthcare",
-    "Novera.MD",
+    "NobleMind.MD",
     "ARWA AI agent",
     "Noble Retrieval",
     "healthcare AI platform",
@@ -38,17 +38,17 @@ export const metadata: Metadata = {
     "Saudi health tech",
     "NobleMind",
   ],
-  authors: [{ name: "Novera", url: siteUrl }],
-  creator: "Novera",
-  publisher: "Novera",
+  authors: [{ name: "NobleMind", url: siteUrl }],
+  creator: "NobleMind",
+  publisher: "NobleMind",
   alternates: {
     canonical: siteUrl,
   },
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName: "Novera",
-    title: "Novera – AI-Powered Healthcare Platform for Saudi Arabia",
+    siteName: "NobleMind",
+    title: "NobleMind – AI-Powered Healthcare Platform for Saudi Arabia",
     description:
       "Generative AI solutions purpose-built for Saudi healthcare. Empowering clinicians, protecting data sovereignty, driving Vision 2030.",
     images: [
@@ -63,11 +63,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Novera – AI-Powered Healthcare Platform for Saudi Arabia",
+    title: "NobleMind – AI-Powered Healthcare Platform for Saudi Arabia",
     description:
       "Generative AI solutions purpose-built for Saudi healthcare. Empowering clinicians, protecting data sovereignty.",
     images: ["/screenshot.jpg"],
-    creator: "@novera_ai",
+    creator: "@noblemind_ai",
   },
   robots: {
     index: true,
@@ -99,7 +99,7 @@ const jsonLd = {
   foundingLocation: {
     "@type": "Place",
     name: "Riyadh, Saudi Arabia",
-  },
+  },  
   areaServed: {
     "@type": "Country",
     name: "Saudi Arabia",
