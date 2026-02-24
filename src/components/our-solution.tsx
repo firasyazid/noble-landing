@@ -6,25 +6,25 @@ import Image from "next/image";
 
 const productIcons = [
   /* Novera.MD — stethoscope / clinical */
-  <svg key="novera-md" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8874df" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg key="novera-md" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
     <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
     <circle cx="20" cy="10" r="2" />
   </svg>,
   /* ARWA — agent/robot */
-  <svg key="arwa" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8874df" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg key="arwa" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <rect x="3" y="8" width="18" height="12" rx="2" />
     <path d="M12 2v6" />
     <circle cx="12" cy="2" r="1" />
     <path d="M7 13h.01M17 13h.01M7 17h10" />
   </svg>,
   /* Novera Workspace — shield/lock */
-  <svg key="workspace" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8874df" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg key="workspace" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 2l8 3v7c0 5-4 8.5-8 10C8 20.5 4 17 4 12V5z" />
     <path d="M9 12l2 2 4-4" />
   </svg>,
   /* Noble Retrieval — document search */
-  <svg key="retrieval" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8874df" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg key="retrieval" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
     <path d="M14 2v6h6" />
     <circle cx="11" cy="15" r="2" />
@@ -89,7 +89,7 @@ export function OurSolution() {
   return (
     <section
       id="products"
-      className="relative overflow-hidden py-28 lg:py-36"
+      className="relative overflow-hidden py-14 lg:py-36"
       style={{
         background: "linear-gradient(180deg, #f8f6ff 0%, #f0ecff 30%, #ede9ff 55%, #f0ecff 80%, #f8f6ff 100%)",
       }}
@@ -113,7 +113,7 @@ export function OurSolution() {
         <div className="absolute left-[38%] top-[35%] h-[280px] w-[280px] rounded-full bg-[rgba(196,160,255,0.25)] blur-[60px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         {/* Badge */}
         <FadeUp>
           <div className="mb-5 flex justify-center">
@@ -198,7 +198,7 @@ export function OurSolution() {
 
               {/* Centered window title */}
               <span
-                className="absolute left-1/2 -translate-x-1/2 text-[12px] font-medium tracking-wide select-none"
+                className="absolute left-1/2 -translate-x-1/2 hidden sm:block text-[12px] font-medium tracking-wide select-none"
                 style={{ color: "rgba(100, 95, 120, 0.65)" }}
               >
                 Products — Noble Mind
@@ -211,7 +211,7 @@ export function OurSolution() {
               {/* ── LEFT: frosted sidebar ── */}
               <nav
                 ref={navRef}
-                className="relative flex flex-row gap-1 p-2 lg:flex-col lg:gap-0 lg:px-3 lg:py-5"
+                className="relative flex flex-row gap-1 overflow-x-auto p-2 lg:flex-col lg:gap-0 lg:overflow-visible lg:px-3 lg:py-5"
                 style={{
                   background: "rgba(236, 228, 255, 0.40)",
                   backdropFilter: "blur(20px) saturate(200%)",
@@ -251,7 +251,7 @@ export function OurSolution() {
                       key={i}
                       ref={(el) => { tabRefs.current[i] = el; }}
                       onClick={() => switchTab(i)}
-                      className={`group relative z-10 flex flex-1 items-center gap-3 rounded-[12px] px-3 py-4 text-left transition-all duration-200 ease-out lg:flex-auto lg:py-4 ${isActive
+                      className={`group relative z-10 flex flex-col lg:flex-row flex-1 items-center gap-1 lg:gap-3 rounded-[12px] px-2 lg:px-3 py-2.5 lg:py-4 text-center lg:text-left transition-all duration-200 ease-out lg:flex-auto ${isActive
                           ? ""
                           : "opacity-55 hover:opacity-90 hover:bg-[rgba(255,255,255,0.40)]"
                         }`}
@@ -272,11 +272,11 @@ export function OurSolution() {
                       </span>
 
                       {/* Label + tagline */}
-                      <div className="hidden min-w-0 lg:block">
-                        <p className={`text-[13px] font-semibold leading-snug transition-colors duration-300 ${isActive ? "text-gray-900" : "text-gray-600"}`}>
+                      <div className="min-w-0">
+                        <p className={`text-[9px] lg:text-[13px] font-semibold leading-snug truncate transition-colors duration-300 ${isActive ? "text-gray-900" : "text-gray-600"}`}>
                           {product.name}
                         </p>
-                        <p className={`text-[11px] leading-relaxed transition-all duration-500 ease-[cubic-bezier(.25,.1,.25,1)] ${isActive ? "mt-1 max-h-16 opacity-100 text-gray-500" : "mt-0 max-h-0 overflow-hidden opacity-0"}`}>
+                        <p className={`hidden lg:block text-[11px] leading-relaxed transition-all duration-500 ease-[cubic-bezier(.25,.1,.25,1)] ${isActive ? "mt-1 max-h-16 opacity-100 text-gray-500" : "mt-0 max-h-0 overflow-hidden opacity-0"}`}>
                           {product.tagline}
                         </p>
                       </div>
@@ -287,7 +287,7 @@ export function OurSolution() {
 
               {/* ── RIGHT: content panel ── */}
               <div
-                className="relative flex min-h-[380px] flex-col p-6 lg:min-h-[500px] lg:p-10"
+                className="relative flex min-h-[320px] flex-col p-4 sm:p-6 lg:min-h-[500px] lg:p-10"
                 style={{
                   background: "rgba(250, 247, 255, 0.30)",
                   backdropFilter: "blur(16px) saturate(180%)",
@@ -314,7 +314,7 @@ export function OurSolution() {
                     {/* Demo UI / Image placeholder */}
                     {activeIdx === 0 ? (
                       <div
-                        className="group relative flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
+                        className="group relative hidden md:flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
                         style={{
                           background: "#ffffff",
                           border: "1px solid rgba(124, 92, 191, 0.20)",
@@ -339,7 +339,7 @@ export function OurSolution() {
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400"><path d="m6 9 6 6 6-6" /></svg>
                           </div>
 
-                          <div className="flex items-center gap-2 rounded-full bg-purple-50 px-3 py-1 text-purple-700 border border-purple-100/50">
+                          <div className="hidden sm:flex items-center gap-2 rounded-full bg-purple-50 px-3 py-1 text-purple-700 border border-purple-100/50">
                             <span className="relative flex h-2 w-2">
                               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75"></span>
                               <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-500"></span>
@@ -434,7 +434,7 @@ export function OurSolution() {
                       </div>
                     ) : activeIdx === 1 ? (
                       <div
-                        className="group relative flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
+                        className="group relative hidden md:flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
                         style={{
                           background: "#ffffff",
                           border: "1px solid rgba(124, 92, 191, 0.20)",
@@ -461,7 +461,7 @@ export function OurSolution() {
                             <span className="text-[12px] font-medium text-gray-700">Active Call · +966 50 123 4567</span>
                           </div>
 
-                          <div className="flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-blue-700 border border-blue-100/50">
+                          <div className="hidden sm:flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-blue-700 border border-blue-100/50">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse">
                               <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
                               <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
@@ -567,7 +567,7 @@ export function OurSolution() {
                       </div>
                     ) : activeIdx === 2 ? (
                       <div
-                        className="group relative flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
+                        className="group relative hidden md:flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
                         style={{
                           background: "#ffffff",
                           border: "1px solid rgba(124, 92, 191, 0.20)",
@@ -595,7 +595,7 @@ export function OurSolution() {
                             <span className="text-[12px] font-medium text-gray-700">On-Premise Secure</span>
                           </div>
 
-                          <div className="flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-gray-600 border border-gray-200">
+                          <div className="hidden sm:flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-gray-600 border border-gray-200">
                             <span className="text-[11px] font-semibold">Internal Network Only</span>
                           </div>
                         </div>
@@ -699,7 +699,7 @@ export function OurSolution() {
                       </div>
                     ) : activeIdx === 3 ? (
                       <div
-                        className="group relative flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
+                        className="group relative hidden md:flex min-h-[360px] w-full flex-col overflow-hidden transition-all duration-300"
                         style={{
                           background: "#ffffff",
                           border: "1px solid rgba(124, 92, 191, 0.20)",
@@ -723,7 +723,7 @@ export function OurSolution() {
                             <span className="text-[12px] font-medium text-gray-700">Upload Document</span>
                           </div>
 
-                          <div className="flex items-center gap-2 rounded-full bg-teal-50 px-3 py-1 text-teal-700 border border-teal-100/50">
+                          <div className="hidden sm:flex items-center gap-2 rounded-full bg-teal-50 px-3 py-1 text-teal-700 border border-teal-100/50">
                             <span className="relative flex h-2 w-2">
                               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"></span>
                               <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500"></span>
@@ -1016,7 +1016,7 @@ export function OurSolution() {
 
                       <a
                         href={products[activeIdx].ctaHref}
-                        className="group/btn inline-flex w-fit items-center gap-2 text-[14px] font-semibold text-[#7c5cbf] transition-all duration-300 hover:-translate-y-0.5"
+                        className="group/btn inline-flex w-fit items-center gap-2 text-[13px] sm:text-[14px] font-semibold text-[#7c5cbf] transition-all duration-300 hover:-translate-y-0.5"
                         style={{
                           padding: "10px 22px",
                           background: "rgba(255, 255, 255, 0.65)",

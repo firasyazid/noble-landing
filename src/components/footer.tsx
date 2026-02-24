@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -92,6 +91,30 @@ export function Footer() {
 
           {/* Socials */}
           <div className="flex shrink-0 items-center gap-5">
+            {/* Contact links */}
+            <a
+              href="mailto:info@NobleMind.sa"
+              className="flex items-center gap-1.5 text-[13px] text-gray-500 transition-colors hover:text-[#8874df]"
+              aria-label="Email"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              <span className="hidden sm:inline">info@NobleMind.sa</span>
+            </a>
+            <a
+              href="tel:+966553388029"
+              className="flex items-center gap-1.5 text-[13px] text-gray-500 transition-colors hover:text-[#8874df]"
+              aria-label="Phone"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.07 6.07l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z" />
+              </svg>
+              <span className="hidden sm:inline">+966 55 338 8029</span>
+            </a>
+            {/* Divider */}
+            <span className="h-5 w-px bg-gray-300" aria-hidden />
             <a
               href="https://twitter.com/NobleMindCo"
               target="_blank"

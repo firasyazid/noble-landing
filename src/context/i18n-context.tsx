@@ -596,7 +596,7 @@ interface I18nContextType {
 const I18nContext = createContext<I18nContextType | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("EN");
+  const [lang, setLangState] = useState<Lang>("AR");
 
   const setLang = (l: Lang) => {
     setLangState(l);
@@ -605,8 +605,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    document.documentElement.dir = "ltr";
-    document.documentElement.lang = "en";
+    document.documentElement.dir = "rtl";
+    document.documentElement.lang = "ar";
   }, []);
 
   const t = translations[lang] as Translations;

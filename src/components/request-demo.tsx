@@ -202,6 +202,47 @@ export function RequestDemo() {
           >
             {t.requestDemo.subtitle}
           </p>
+
+          {/* Contact info row */}
+          <div
+            className={`mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 transition-all duration-700 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "220ms" }}
+          >
+            <a
+              href="mailto:info@NobleMind.sa"
+              className="group flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/80 px-5 py-3 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8874df]/30 hover:shadow-[0_8px_24px_rgba(136,116,223,0.12)]"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#8874df]/10 text-[#8874df] transition-colors duration-300 group-hover:bg-[#8874df] group-hover:text-white">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </span>
+              <div className="text-left">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400">Email</p>
+                <p className="text-[13.5px] font-semibold text-gray-800 transition-colors duration-200 group-hover:text-[#8874df]">info@NobleMind.sa</p>
+              </div>
+            </a>
+
+            <span className="hidden sm:block h-8 w-px bg-gray-200" aria-hidden />
+
+            <a
+              href="tel:+966553388029"
+              className="group flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/80 px-5 py-3 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8874df]/30 hover:shadow-[0_8px_24px_rgba(136,116,223,0.12)]"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#8874df]/10 text-[#8874df] transition-colors duration-300 group-hover:bg-[#8874df] group-hover:text-white">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.07 6.07l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z" />
+                </svg>
+              </span>
+              <div className="text-left">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400">Phone</p>
+                <p className="text-[13.5px] font-semibold text-gray-800 transition-colors duration-200 group-hover:text-[#8874df]">+966 55 338 8029</p>
+              </div>
+            </a>
+          </div>
         </div>
 
         {/* Form Card  */}
